@@ -1,6 +1,8 @@
 # Random Features for Expected Gaussian Kernels
 
-Code for [Classification of Sparse and Irregularly Sampled Time Series with
+Implementation of the random Fourier features for expected Gaussian kernels
+with Fastfood and low rank approximation as described in the paper
+[Classification of Sparse and Irregularly Sampled Time Series with
 Mixtures of Expected Gaussian Kernels and Random Features]
 (http://auai.org/uai2015/proceedings/papers/41.pdf).
 
@@ -18,9 +20,12 @@ Mixtures of Expected Gaussian Kernels and Random Features]
 The following example (`demo.py`) demonstrates how to classify
 irregularly sampled time series data using random features for
 the expected Gaussian kernels.
-In the example, the pickle file `data/ECG200-50.pkl`
-stores the data set in the form of `ts_train, ts_test, l_train, l_test`,
-where
+The data file `data/ECG200-50.pkl` used in the example is
+created based on the `ECG200` data set from the [UCR time series
+classification archive](http://www.cs.ucr.edu/~eamonn/time_series_data/)
+with 50% sampling density.
+The data file is in Python's pickle format that stores the data set
+in the form of `ts_train, ts_test, l_train, l_test`, where
 
 * `ts_train` is the training time series as a list of tuples.
   Each tuple contains two numpy ndarrays `(t, y)`
