@@ -34,7 +34,7 @@ def low_rank_cov_root(covs, rank, implementation='randomized_svd'):
 
 class FastfoodEGK(object):
     def __init__(self, gamma, n_sample=None, normalize=False, rank=0,
-                 root_cov=False, random_seed=1):
+                 random_seed=1):
         """
         Apply low-rank approximation with rank > 0
         """
@@ -42,7 +42,6 @@ class FastfoodEGK(object):
         self.n_sample = n_sample
         self.normalize = normalize
         self.rank = rank
-        self.root_cov = root_cov
         self.random_seed = random_seed
 
     def fit(self, means, covs):
@@ -184,12 +183,11 @@ class FastfoodEGK(object):
         n_data, n_dim = means.shape
         n_dim_pow2 = self.n_dim_pow2
 
-        root_cov = self.root_cov
-        if root_cov:
-            self.rank = covs.shape[-1]
-        elif self.rank > 0:   # root_cov is False
+        if self.rank > 0:
             covs = low_rank_cov_root(covs, self.rank)
             root_cov = True
+        else:
+            root_cov = False
 
         if n_dim == n_dim_pow2:
             means_padded = means
