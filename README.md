@@ -2,9 +2,7 @@
 
 Implementation of the random Fourier features for expected Gaussian kernels
 with Fastfood and low rank approximation as described in the paper
-[Classification of Sparse and Irregularly Sampled Time Series with
-Mixtures of Expected Gaussian Kernels and Random Features]
-(http://auai.org/uai2015/proceedings/papers/41.pdf).
+"[Classification of Sparse and Irregularly Sampled Time Series with Mixtures of Expected Gaussian Kernels and Random Features](http://auai.org/uai2015/proceedings/papers/41.pdf)".
 
 ## Requirements
 
